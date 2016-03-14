@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class SideNav extends Component {
   render() {
@@ -28,20 +29,24 @@ export default class SideNav extends Component {
         height: '2px',
         width: '80%',
         backgroundColor: '#6B6A6A'
+      },
+      Link: {
+        color: '#6B6A6A',
+        textDecoration: 'none'
       }
     }
     return (
       <div style={styles.sideNav}>
         <ul style={styles.ul}>
-          <li style={styles.li}>Home</li>
-          <hr style={styles.hr} />npm
-          <li style={styles.li}>My Data</li>
+          <li style={styles.li}><Link style={styles.Link} to="/home">Home</Link></li>
           <hr style={styles.hr} />
-          <li style={styles.li}>Assemble</li>
+          <li style={styles.li}><Link style={styles.Link} to="/myData">Data</Link></li>
           <hr style={styles.hr} />
-          <li style={styles.li}>Wizard</li>
+          <li style={styles.li}><Link style={styles.Link} to="/build">Build</Link></li>
           <hr style={styles.hr} />
-          <li style={styles.li}>Past Resumes</li>
+          <li style={styles.li}><Link style={styles.Link} to="/wizard/index">Wizard</Link></li>
+          <hr style={styles.hr} />
+          <li style={styles.li}><Link style={styles.Link} to="/past">Past Resumes</Link></li>
         </ul>
       </div>
     );

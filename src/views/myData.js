@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 
 export default class MyData extends Component {
+  constructor( props ) {
+    super( props );
+    this.state = {};
+
+    var data = localStorage.getItem('jrmgrstate');
+    if(data) {
+      data = JSON.parse(data);
+      //loop through each section
+      this.state = {
+        data: data
+      };
+    }
+  }
+
   render() {
     var styles = {
       drop: {
@@ -15,39 +29,30 @@ export default class MyData extends Component {
       },
       value: {
         margin: '0px',
-        marginLeft: '10px'
+        marginLeft: '10px',
+        color: '#fff'
+      },
+      key: {
       }
     };
-
     return (
       <div>
-
-        <div>
-          <div style={styles.section}>
-            <span style={styles.drop}> >> </span>
-            <span>Basics</span>
-          </div>
-          <div style={styles.subSection}>
-            <p style={styles.value}>Name</p>
-            <p style={styles.value}>Address</p>
-            <p style={styles.value}>Location</p>
-          </div>
-        </div>
-        
-        <div>
-          <div style={styles.section}>
-            <span style={styles.drop}> >> </span>
-            <span>Basics</span>
-          </div>
-          <div style={styles.subSection}>
-            <p style={styles.value}>Name</p>
-            <p style={styles.value}>Address</p>
-            <p style={styles.value}>Location</p>
-          </div>
-        </div>
-
-
+        {()=>{
+          if(this.state.basics) {
+            console.log("Show It");
+            return (
+              <div>
+                <p style={styles.section}>Basics</p>
+              </div>
+            )
+          } else {
+            console.log("Dont Show It");
+            return (
+              <div>Nothing</div>
+            )
+          }
+        }}
       </div>
-    );
+    )
   }
 }

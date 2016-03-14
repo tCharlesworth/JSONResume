@@ -6,8 +6,7 @@ export default class Header extends Component {
       header: {
         width: '100%',
         padding: '10px',
-        backgroundColor: '#6B6A6A',
-        borderBottom: '3px solid #6B6A6A',
+        backgroundColor: 'dodgerblue',
         color: '#000'
       },
       title: {
@@ -18,7 +17,9 @@ export default class Header extends Component {
       ul: {
         display: 'inline-block',
         float: 'right',
-        marginRight: '30px'
+        marginRight: '30px',
+        paddingRight: '30px',
+        height: '10px'
       },
       li: {
         display: 'inline-block',
